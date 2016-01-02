@@ -14,6 +14,10 @@ service { 'apache2':
   ensure => running,
 }
 
+exec { 'rm':                   
+  command => 'sudo rm /var/www/html/index.html'  
+}
+
 package { 'php5':
   require => Exec['apt-update'],        # require 'apt-update' before installing
   ensure => installed,
